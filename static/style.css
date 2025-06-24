@@ -1,0 +1,85 @@
+/* static/style.css */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #83a4d4, #b6fbff);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    max-width: 700px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+.btn {
+    display: inline-block;
+    background: #4caf50;
+    color: white;
+    padding: 10px 18px;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn.back {
+    background: #888;
+}
+
+.search-box {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.search-box input {
+    padding: 8px;
+    width: 60%;
+    margin-right: 5px;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    background: #f1f1f1;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+.task-item .actions a {
+    margin-right: 15px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.filters {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filters a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+.flash-messages {
+    list-style: none;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+}

@@ -1,0 +1,27 @@
+<!-- templates/add_task.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>➕ Add New Task</h2>
+        <form action="{{ url_for('add') }}" method="POST">
+            <label>Title:</label>
+            <input type="text" name="title" required>
+
+            <label>Description:</label>
+            <textarea name="description" required></textarea>
+
+            <label>Due Date:</label>
+            <input type="date" name="due_date" required>
+
+            <button type="submit" class="btn">Add Task</button>
+            <a href="{{ url_for('index') }}" class="btn back">Back</a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Task Manager</h1>
+        <a href="{{ url_for('add') }}" class="btn">➕ Add Task</a>
+
+        <form action="{{ url_for('search') }}" method="POST" class="search-box">
+            <input type="text" name="keyword" placeholder="Search tasks..." required>
+            <button type="submit">🔍 Search</button>
+        </form>
+
+        <div class="filters">
+            <a href="{{ url_for('filter_status', status='Pending') }}">Pending</a>
+            <a href="{{ url_for('filter_status', status='Completed') }}">Completed</a>
+            <a href="{{ url_for('index') }}">All</a>
+        </div>
+
+        {% if tasks %}
+            <ul class="task-list">
+                {% for task in tasks %}
+                    <li class="task-item">
+                        <h3>{{ task[1] }} ({{ task[4] }})</h3>
+                        <p>{{ task[2] }}</p>
+                        <p>📅 Due: {{ task[3] }}</p>
+                        <div class="actions">
+                            <a href="{{ url_for('complete', task_id=task[0]) }}">✔ Complete</a>
+                            <a href="{{ url_for('delete', task_id=task[0]) }}">🗑 Delete</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No tasks available.</p>
+        {% endif %}
+    </div>
+</body>
+
+<!-- Just after <body> -->
+    <body>
+        <div class="container">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flash-messages">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+    
+</html>
